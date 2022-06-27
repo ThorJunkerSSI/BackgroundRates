@@ -11,9 +11,9 @@
 #     "AGE" and "SEX" should be identical to the one in BGR
 #     "PYRS" is a numerical variable of the follow-up time in the exposed individuals
 #     "Obs" is a numerical variable of the recorded cases during follow-up in the exposed individuals
-#     "..." additional covariates that could be of interest such as vaccination or something similar
+#     "..." additional covariates that could be of interest such as vaccination status or something similar
 #
-#The estimate of SIR can be stratified by defining "grp_vars" as a vector of the covariatenames
+#The estimate of SIR can be stratified by defining "grp_vars" as a vector of the covariate names
 #that we wish to stratify for. This could be "AGE" or "SEX" but also additional covariates, such as vaccination status,
 #if it is included in Obs.DF 
 ############################################################################################
@@ -38,7 +38,7 @@ SIR.fun <- function(BGR,Obs.DF, grp_vars = NULL){
 #To illustrate the function we have simulated some background rates of an arbitrary event A
 #and some observations from a period afterwards where a population have been exposed to something.
 #In the example Females that have been exposed has 1.1 increased risk of having event A and 
-#Males that have been exposed has 1.5 increased risk.
+#Males that have been exposed have 1.5 increased risk.
 
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -57,6 +57,5 @@ SIR.fun(BGR_sim, Obs.DF, grp_vars = NULL)
 SIR.fun(BGR_sim, Obs.DF, grp_vars = c("SEX"))
 SIR.fun(BGR_sim, Obs.DF, grp_vars = c("AGE"))
 SIR.fun(BGR_sim, Obs.DF, grp_vars = c("AGE", "SEX"))
-
 
 ############################################################
